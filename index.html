@@ -1,2 +1,58 @@
-<h1>Hi, this is just a placeholder.</h1>
-<div>no news yet</div>
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog mit Darkmode</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>Mein Blog</h1>
+    <button id="theme-toggle">🌙 Wechseln zu Darkmode</button>
+  </header>
+
+  <main>
+    <article>
+      <h2>Schrittweise Ablösung einer Groovy-Grails-App</h2>
+      <p>In diesem Beitrag erklären wir, wie...</p>
+    </article>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Mein Blog</p>
+  </footer>
+
+  <script>
+    // Darkmode-Umschalter
+    const themeToggle = document.getElementById('theme-toggle');
+    const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+
+    const currentTheme = localStorage.getItem('theme');
+    if (currentTheme === 'dark') {
+      document.body.classList.add('dark-mode');
+      themeToggle.textContent = '☀️ Wechseln zu Lightmode';
+    } else if (currentTheme === 'light') {
+      document.body.classList.remove('dark-mode');
+      themeToggle.textContent = '🌙 Wechseln zu Darkmode';
+    }
+
+    themeToggle.addEventListener('click', () => {
+      if (document.body.classList.contains('dark-mode')) {
+        document.body.classList.remove('dark-mode');
+        localStorage.setItem('theme', 'light');
+        themeToggle.textContent = '🌙 Wechseln zu Darkmode';
+      } else {
+        document.body.classList.add('dark-mode');
+        localStorage.setItem('theme', 'dark');
+        themeToggle.textContent = '☀️ Wechseln zu Lightmode';
+      }
+    });
+
+    // Dark Mode basierend auf Systemeinstellung (Fallback)
+    if (!currentTheme && prefersDarkScheme.matches) {
+      document.body.classList.add('dark-mode');
+    }
+  </script>
+</body>
+</html>
