@@ -1,3 +1,54 @@
+<style>
+/* Basis-Stile, unabhängig vom Modus */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+header, footer {
+  padding: 1rem;
+  text-align: center;
+}
+
+/* Light Mode */
+body {
+  background-color: #ffffff;
+  color: #333333;
+}
+
+header, footer {
+  background-color: #f4f4f4;
+  color: #333333;
+}
+
+a {
+  color: #0066cc;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Dark Mode */
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #121212;
+    color: #e0e0e0;
+  }
+
+  header, footer {
+    background-color: #1f1f1f;
+    color: #e0e0e0;
+  }
+
+  a {
+    color: #4dabf7;
+  }
+}
+</style>
 <header>
     <h1>Mein Blog</h1>
     <button id="theme-toggle">🌙 Wechseln zu Darkmode</button>
