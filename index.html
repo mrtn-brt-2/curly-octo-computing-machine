@@ -49,36 +49,3 @@ a:hover {
   <footer>
     <p>&copy; 2025 Mein Blog</p>
   </footer>
-
-  <script>
-    // Darkmode-Umschalter
-    const themeToggle = document.getElementById('theme-toggle');
-    const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
-
-    const currentTheme = localStorage.getItem('theme');
-    if (currentTheme === 'dark') {
-      document.body.classList.add('dark-mode');
-      themeToggle.textContent = '☀️ Wechseln zu Lightmode';
-    } else if (currentTheme === 'light') {
-      document.body.classList.remove('dark-mode');
-      themeToggle.textContent = '🌙 Wechseln zu Darkmode';
-    }
-
-    themeToggle.addEventListener('click', () => {
-      if (document.body.classList.contains('dark-mode')) {
-        document.body.classList.remove('dark-mode');
-        localStorage.setItem('theme', 'light');
-        themeToggle.textContent = '🌙 Wechseln zu Darkmode';
-      } else {
-        document.body.classList.add('dark-mode');
-        localStorage.setItem('theme', 'dark');
-        themeToggle.textContent = '☀️ Wechseln zu Lightmode';
-      }
-    });
-
-    // Dark Mode basierend auf Systemeinstellung (Fallback)
-    if (!currentTheme && prefersDarkScheme.matches) {
-      document.body.classList.add('dark-mode');
-    }
-  </script>
-
