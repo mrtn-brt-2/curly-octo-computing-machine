@@ -8,13 +8,7 @@ branding:
   icon: code
 runs: 
   using: 'composite'
-  steps: 
-    - run : npm i
-      shell: bash
-    - run : npm ci
-      shell: bash
-    - run : npm run build
-      shell: bash
+  steps:
     - run : git config user.name github-actions
       shell: bash
     - run : git config user.email github-actions@github.com
